@@ -5,8 +5,9 @@ import initialize from '../utils/initialize';
 import Layout from '../components/Layout';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import GET_GENERAL_SETTINGS_QUERY from '../queries/GET_GENERAL_SETTINGS';
 
-const Whoami = ({ user, getAllPosts, userRole }) => (
+const Whoami = ({ user, getAllPosts, userRole, GET_GENERAL_SETTINGS_QUERY }) => (
   <Layout title="Who Am I">
     {(user && (
       <>
@@ -36,6 +37,25 @@ const Whoami = ({ user, getAllPosts, userRole }) => (
         <hr />
         <h3>Dodatkowe informacje o użytkowniku:</h3>
         <p>Rola: {userRole}</p>
+        <Query query={GET_GENERAL_SETTINGS_QUERY}>
+        {({ loading, error, data }) => {
+            if (loading) return <div>Wczytywanie...</div>;
+            if (error) return false;
+            return (
+              <div>
+                {data.headlessSettings.length > 0 ? (
+                  <>
+                    {data.headlessSettings.map(() => (
+                      <p key={pageTitle}>{pageTitle}</p>
+                    ))}
+                  </>
+                ) : (
+                  <p dangerouslySetInnerHTML={{__html: data.headlessSettings.ustawieniaAplikacji.logo}} />
+                )}
+              </div>
+            );
+          }}
+        </Query>
       </>
     )) || (
       <h3 className="title is-3 has-text-danger	">Nie jesteś zweryfikowany.</h3>
@@ -55,6 +75,7 @@ Whoami.getInitialProps = async ctx => {
     const user = response.data.name;
     const userID = response.data.id;
     const userRole = response.data.roles;
+
     const getAllPosts = gql`
     {
       posts(where: { author: ${ userID  } }) {
@@ -68,7 +89,8 @@ Whoami.getInitialProps = async ctx => {
     return {
       user,
       getAllPosts,
-      userRole
+      userRole,
+      GET_GENERAL_SETTINGS_QUERY,
     };
   }
 };

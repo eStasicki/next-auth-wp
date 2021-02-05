@@ -20,7 +20,7 @@ const Layout = ({ children, title, isAuthenticated, deauthenticate }) => (
       </ul>
     </div>
 
-    <div className="has-text-centered">
+    <div>
       { children }
     </div>
   </div>
