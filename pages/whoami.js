@@ -6,7 +6,7 @@ import Layout from '../components/Layout';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
-const Whoami = ({ user, getAllPosts }) => (
+const Whoami = ({ user, getAllPosts, userRole }) => (
   <Layout title="Who Am I">
     {(user && (
       <>
@@ -33,6 +33,9 @@ const Whoami = ({ user, getAllPosts }) => (
             );
           }}
         </Query>
+        <hr />
+        <h3>Dodatkowe informacje o użytkowniku:</h3>
+        <p>Rola: {userRole}</p>
       </>
     )) || (
       <h3 className="title is-3 has-text-danger	">Nie jesteś zweryfikowany.</h3>
@@ -51,6 +54,8 @@ Whoami.getInitialProps = async ctx => {
     });
     const user = response.data.name;
     const userID = response.data.id;
+    const userRole = response.data.roles;
+    console.log(response.data);
     const getAllPosts = gql`
     {
       posts(where: { author: ${ userID  } }) {
@@ -61,11 +66,10 @@ Whoami.getInitialProps = async ctx => {
       }
     }
     `;
-    //console.log( getAllPosts );
-    //console.log( response.data )
     return {
       user,
-      getAllPosts
+      getAllPosts,
+      userRole
     };
   }
 };
