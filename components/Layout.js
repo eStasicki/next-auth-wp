@@ -13,13 +13,14 @@ const Layout = ({ children, title, isAuthenticated, deauthenticate }) => (
     </Head>
     <div className="tabs is-centered">
       <ul>
-        <Link href="/"><a>Home</a></Link>
-        {!isAuthenticated && <Link href="/signin"><a>Sign In</a></Link>}
-        {!isAuthenticated && <Link href="/signup"><a>Sign Up</a></Link>}
-        {isAuthenticated && <li onClick={deauthenticate}><a>Sign Out</a></li>}
-        <Link href="/whoami"><a>Who Am I</a></Link>
+        <Link href="/"><a>Strona główna</a></Link>
+        {!isAuthenticated && <Link href="/signin"><a>Logowanie</a></Link>}
+        {isAuthenticated && <li onClick={deauthenticate}><a>Wyloguj się</a></li>}
+        <Link href="/whoami"><a>Sprawdzenie konta</a></Link>
       </ul>
     </div>
+
+    { console.log( isAuthenticated ) }
 
     <div className="has-text-centered">
       { children }
@@ -30,5 +31,6 @@ const Layout = ({ children, title, isAuthenticated, deauthenticate }) => (
 const mapStateToProps = (state) => (
   {isAuthenticated: !!state.authentication.token}
 );
+
 
 export default connect(mapStateToProps, actions)(Layout);
