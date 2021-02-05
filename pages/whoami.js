@@ -55,7 +55,6 @@ Whoami.getInitialProps = async ctx => {
     const user = response.data.name;
     const userID = response.data.id;
     const userRole = response.data.roles;
-    console.log(response.data);
     const getAllPosts = gql`
     {
       posts(where: { author: ${ userID  } }) {
