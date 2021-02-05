@@ -28,7 +28,7 @@ class Signin extends React.Component {
   render() {
     return (
       <Layout title="Sign In">
-        <h3 className="title is-3">Sign In</h3>
+        <h3 className="title is-3">Logowanie</h3>
         <form
           onSubmit={this.handleSubmit.bind(this)}
           className="container"
@@ -39,7 +39,7 @@ class Signin extends React.Component {
               <input
                 className="input"
                 type="text"
-                placeholder="Username"
+                placeholder="Login"
                 required
                 value={this.state.username}
                 onChange={e => this.setState({ username: e.target.value })}
@@ -57,7 +57,7 @@ class Signin extends React.Component {
               <input
                 className="input"
                 type="password"
-                placeholder="Password"
+                placeholder="Hasło"
                 required
                 value={this.state.password}
                 onChange={e => this.setState({ password: e.target.value })}
@@ -70,7 +70,7 @@ class Signin extends React.Component {
           <div className="field">
             <p className="control has-text-centered">
               <button type="submit" className="button is-success">
-                Sign In
+                Zaloguj się
               </button>
             </p>
           </div>

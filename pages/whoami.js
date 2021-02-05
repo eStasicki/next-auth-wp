@@ -35,7 +35,7 @@ const Whoami = ({ user, getAllPosts }) => (
         </Query>
       </>
     )) || (
-      <h3 className="title is-3 has-text-danger	">You are not authenticated.</h3>
+      <h3 className="title is-3 has-text-danger	">Nie jesteś zweryfikowany.</h3>
     )}
   </Layout>
 );

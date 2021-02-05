@@ -20,8 +20,6 @@ const Layout = ({ children, title, isAuthenticated, deauthenticate }) => (
       </ul>
     </div>
 
-    { console.log( isAuthenticated ) }
-
     <div className="has-text-centered">
       { children }
     </div>
