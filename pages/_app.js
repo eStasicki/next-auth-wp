@@ -9,6 +9,8 @@ import withRedux from 'next-redux-wrapper';
 import { initStore } from '../redux';
 import { API_GRAPHQL } from '../config';
 
+import '../styles/global.scss';
+
 
 const client = new ApolloClient({
   uri: API_GRAPHQL,
