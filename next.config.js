@@ -1,32 +1,22 @@
-require('dotenv').config();
+const withCSS = require('@zeit/next-css')
+const withLess = require('@zeit/next-less')
+const withSass = require('@zeit/next-sass')
 
-module.exports = {
-
-  devIndicators: {
-    autoPrerender: false,
-  },
-
-  webpack: (config) => {
-    const oneOf = config.module.rules.find(
-      (rule) => typeof rule.oneOf === 'object'
-    );
-
-    const fixUse = (use) => {
-      if (use.loader.indexOf('css-loader') >= 0 && use.options.modules) {
-        use.options.modules.mode = 'local';
+module.exports = withCSS(
+  withLess(
+    withSass({
+      lessLoaderOptions: {
+        javascriptEnabled: true,
+      },
+      webpack: config => {
+        config.module.rules.push(
+          {
+            test: /\.css$/i,
+            use: ['style-loader', 'css-loader'],
+          }
+        );
+        return config;
       }
-    };
-
-    if (oneOf) {
-      oneOf.oneOf.forEach((rule) => {
-        if (Array.isArray(rule.use)) {
-          rule.use.map(fixUse);
-        } else if (rule.use && rule.use.loader) {
-          fixUse(rule.use);
-        }
-      });
-    }
-
-    return config;
-  },
-};
+    })
+  )
+)
