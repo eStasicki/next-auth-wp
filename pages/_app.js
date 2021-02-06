@@ -1,4 +1,4 @@
-import App, { Container } from 'next/app';
+import App from 'next/app';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import { Provider } from 'react-redux';
