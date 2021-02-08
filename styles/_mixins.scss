@@ -1,0 +1,40 @@
+@mixin cover-background {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+@mixin flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+@mixin flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin flex-center-column {
+	flex-direction: column;
+
+	@include flex-center;
+}
+
+@mixin flex-center-vert {
+	display: flex;
+	align-items: center;
+}
+
+@mixin flex-center-horiz {
+	display: flex;
+	justify-content: center;
+}
+
+@mixin animation($property: all, $duration: 0.2s, $function: ease) {
+	-webkit-transition: $property $duration $function;
+	-moz-transition: $property $duration $function;
+	-ms-transition: $property $duration $function;
+	-o-transition: $property $duration $function;
+	transition: $property $duration $function;
+}

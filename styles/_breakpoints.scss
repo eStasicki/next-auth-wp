@@ -1,0 +1,77 @@
+// Screen size variables
+$xs: 575.99px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+$xxxl: 1700px;
+
+// Mixins
+@mixin xs {
+	@media (max-width: #{$xs}) {
+		@content;
+	}
+}
+
+@mixin sm {
+	@media (min-width: #{$sm}) {
+		@content;
+	}
+}
+
+@mixin md {
+	@media (min-width: #{$md}) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@media (min-width: #{$lg}) {
+		@content;
+	}
+}
+
+@mixin xl {
+	@media (min-width: #{$xl}) {
+		@content;
+	}
+}
+
+@mixin xxl {
+	@media (min-width: #{$xxl}) {
+		@content;
+	}
+}
+
+@mixin xxxl {
+	@media (min-width: #{$xxxl}) {
+		@content;
+	}
+}
+
+// Betweens
+
+@mixin sm-md {
+	@media all and (min-width: #{$sm}) and (max-width: #{$md}) {
+		@content;
+	}
+}
+
+@mixin md-lg {
+	@media all and (min-width: #{$md}) and (max-width: #{$lg}) {
+		@content;
+	}
+}
+
+@mixin lg-xl {
+	@media all and (min-width: #{$lg}) and (max-width: #{$xl}) {
+		@content;
+	}
+}
+
+@mixin media($min-width, $max-width) {
+	@media all and (min-width: #{$min-width}) and (max-width: #{$max-width}) {
+		@content;
+	}
+}
