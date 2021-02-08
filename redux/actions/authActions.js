@@ -18,9 +18,10 @@ const authenticate = ({ username, password }, type) => {
         dispatch({ type: AUTHENTICATE, payload: response.data.token });
       })
       .catch((error, response) => {
-        removeCookie('token');
-        Router.push('/');
-        dispatch({ type: DEAUTHENTICATE });
+        // removeCookie('token');
+        // Router.push('/');
+        // dispatch({ type: DEAUTHENTICATE });
+        alert('Błąd logowania. Popraw Login lub Hasło.');
       });
   };
 };
