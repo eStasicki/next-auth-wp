@@ -1,0 +1,8 @@
+{
+  "editor.formatOnSave": false,
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "csscomb.formatOnSave": true,
+  "csscomb.preset": "./.csscomb.json"
+}

@@ -10,6 +10,24 @@
 // 	@return $value / $vw-context * 1vw;
 // 	@return $value;
 // }
+html {
+	@include xl {
+		height: 100%;
+	}
+}
 body {
+	font-family: 'Poppins', sans-serif;
 	position: relative;
+	@include xl {
+		height: 100%;
+	}
+}
+
+#__next {
+	@include xl {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
 }

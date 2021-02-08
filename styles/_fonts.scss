@@ -1,14 +1,1 @@
-@font-face {
-	font-family: "Bw Gradual";
-	src: url("./fonts/BwGradual-Regular/font.woff2") format("woff2"),
-	url("./fonts/BwGradual-Regular/font.woff") format("woff");
-
-	font-display: swap;
-}
-@font-face {
-	font-family: "Apparel";
-	src: url("./fonts/Apparel-Regular/font.woff2") format("woff2"),
-	url("./fonts/Apparel-Regular/font.woff") format("woff");
-
-	font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700;900&display=swap');

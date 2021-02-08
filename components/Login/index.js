@@ -37,45 +37,30 @@ class Login extends React.Component {
           onSubmit={this.handleSubmit.bind(this)}
           className={cx('container')}
         >
-          <div className="field">
-            <p className="control has-icons-left has-icons-right">
-              <input
-                className="input"
-                type="text"
-                placeholder="Login"
-                required
-                value={this.state.username}
-                onChange={(e) => this.setState({ username: e.target.value })}
-              />
-              <span className="icon is-small is-left">
-                <i className="fas fa-envelope" />
-              </span>
-              <span className="icon is-small is-right">
-                <i className="fas fa-check" />
-              </span>
-            </p>
+          <div className={cx('field')}>
+            <input
+              className={cx('input')}
+              type="text"
+              placeholder="Login"
+              required
+              value={this.state.username}
+              onChange={(e) => this.setState({ username: e.target.value })}
+            />
           </div>
-          <div className="field">
-            <p className="control has-icons-left">
-              <input
-                className="input"
-                type="password"
-                placeholder="Hasło"
-                required
-                value={this.state.password}
-                onChange={(e) => this.setState({ password: e.target.value })}
-              />
-              <span className="icon is-small is-left">
-                <i className="fas fa-lock" />
-              </span>
-            </p>
+          <div className={cx('field')}>
+            <input
+              className={cx('input')}
+              type="password"
+              placeholder="Hasło"
+              required
+              value={this.state.password}
+              onChange={(e) => this.setState({ password: e.target.value })}
+            />
           </div>
-          <div className="field">
-            <p className="control has-text-centered">
-              <button type="submit" className="button is-success">
-                Zaloguj się
-              </button>
-            </p>
+          <div className={cx(['field', 'button-field'])}>
+            <button type="submit" className={cx('submit')}>
+              Zaloguj się
+            </button>
           </div>
         </form>
       </div>
