@@ -6,6 +6,7 @@
       "@styles/*": ["styles/*"],
       "@queries/*": ["queries/*"],
       "@utils/*": ["utils/*"],
+      "@redux/*": ["redux/*"],
     }
   }
 }
