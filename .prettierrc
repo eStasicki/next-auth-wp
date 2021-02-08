@@ -7,6 +7,6 @@
   "bracketSpacing": true,
   "jsxBracketSameLine": false,
   "endOfLine": "auto",
-  "importOrder": ["^[./]", "^@core/(.*)$", "^@server/(.*)$", "^@/styles/(.*)$"],
+  "importOrder": ["^[./]", "^@core/(.*)$", "^@server/(.*)$", "^@components/(.*)$", "^@queries/(.*)$", "^@styles/(.*)$"],
   "importOrderSeparation": true
 }

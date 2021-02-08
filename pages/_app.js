@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import { API_GRAPHQL } from '../config.js';
 import { initStore } from '../redux';
 
-import '@/styles/global.scss';
+import '@styles/global.scss';
 
 const client = new ApolloClient({
   uri: API_GRAPHQL,
