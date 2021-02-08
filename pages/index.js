@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 
-import Layout from '../components/Layout';
-import initialize from '../utils/initialize';
+import Layout from '@components/Layout';
+
+import initialize from '@utils/initialize';
 
 const Index = () => (
   <Layout title="Home">

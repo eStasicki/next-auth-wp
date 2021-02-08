@@ -4,7 +4,8 @@
     "paths": {
       "@components/*": ["components/*"],
       "@styles/*": ["styles/*"],
-      "@queries/*": ["queries/*"]
+      "@queries/*": ["queries/*"],
+      "@utils/*": ["utils/*"],
     }
   }
 }
