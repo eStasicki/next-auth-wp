@@ -6,7 +6,7 @@
 	height: 100%;
 	background: $color-5;
 
-@include xl {
+	@include xl {
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -20,7 +20,7 @@
 	border-radius: 15px;
 	background: rgba($white, 0.1);
 
-@include xl {
+	@include xl {
 		width: 500px;
 	}
 	.field {
@@ -29,23 +29,43 @@
 			display: flex;
 			align-items: center;
 			width: 100%;
-			padding: 0;
+			padding: 15px;
 			border: none;
+			border-radius: 10px;
 			background: $white;
 			font-size: 18px;
 			&:focus {
 				border: none;
 				outline: none;
 			}
+			&[type="password"] {
+				margin-top: 20px;
+			}
 		}
 	}
 	.button-field {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 20px 20px 0 20px;
 		button {
 			&.submit {
 				display: flex;
 				justify-content: center;
 				align-items: center;
+				padding: 15px 35px;
+				cursor: pointer;
+				color: $white;
+				border-radius: 10px;
 				background: $color-1;
+				font-size: 18px;
+
+				@include xl {
+					@include animation();
+					&:hover {
+						background: $color-4;
+					}
+				}
 			}
 		}
 	}

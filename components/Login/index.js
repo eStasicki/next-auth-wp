@@ -36,6 +36,7 @@ class Login extends React.Component {
         <form
           onSubmit={this.handleSubmit.bind(this)}
           className={cx('container')}
+          autoComplete="false"
         >
           <div className={cx('field')}>
             <input
