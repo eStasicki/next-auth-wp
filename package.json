@@ -40,6 +40,7 @@
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^1.4.1",
     "babel-eslint": "^8.2.1",
+    "classnames": "^2.2.6",
     "eslint": "^7.19.0",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-react": "^7.6.1",
