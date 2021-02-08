@@ -7,7 +7,7 @@ import fetch from 'node-fetch';
 
 import withRedux from 'next-redux-wrapper';
 import { initStore } from '../redux';
-import { API_GRAPHQL } from '../config';
+import { API_GRAPHQL } from '../config.js';
 
 import '@/styles/global.scss';
 
