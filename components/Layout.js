@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { connect } from 'react-redux';
 
 import Login from '@components/Login';
@@ -6,7 +5,7 @@ import Sidebar from '@components/Sidebar';
 
 import actions from '@redux/actions';
 
-const Layout = ({ children, title, isAuthenticated, deauthenticate }) => (
+const Layout = ({ children, isAuthenticated }) => (
   <>
     {isAuthenticated ? (
       <>

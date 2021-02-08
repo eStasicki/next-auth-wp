@@ -1,12 +1,15 @@
+import classNames from 'classnames/bind';
 import Link from 'next/link';
 import { connect } from 'react-redux';
 
-import Login from '@components/Login';
+import styles from './Sidebar.module.scss';
 
 import actions from '@redux/actions';
 
-const Sidebar = ({ children, title, isAuthenticated, deauthenticate }) => (
-  <nav>
+let cx = classNames.bind(styles);
+
+const Sidebar = ({ deauthenticate }) => (
+  <nav className={cx('sidebar')}>
     <ul>
       <li>
         <Link href="/">
