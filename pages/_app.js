@@ -1,13 +1,12 @@
-import App from 'next/app';
 import ApolloClient from 'apollo-boost';
+import withRedux from 'next-redux-wrapper';
+import App from 'next/app';
+import fetch from 'node-fetch';
 import { ApolloProvider } from 'react-apollo';
 import { Provider } from 'react-redux';
 
-import fetch from 'node-fetch';
-
-import withRedux from 'next-redux-wrapper';
-import { initStore } from '../redux';
 import { API_GRAPHQL } from '../config.js';
+import { initStore } from '../redux';
 
 import '@/styles/global.scss';
 

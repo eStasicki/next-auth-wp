@@ -7,7 +7,7 @@ export const setCookie = (key, value) => {
   if (process.browser) {
     cookie.set(key, value, {
       expires: 1,
-      path: '/'
+      path: '/',
     });
   }
 };
@@ -15,7 +15,7 @@ export const setCookie = (key, value) => {
 export const removeCookie = (key) => {
   if (process.browser) {
     cookie.remove(key, {
-      expires: 1
+      expires: 1,
     });
   }
 };
@@ -26,7 +26,7 @@ export const getCookie = (key, req) => {
     : getCookieFromServer(key, req);
 };
 
-const getCookieFromBrowser = key => {
+const getCookieFromBrowser = (key) => {
   return cookie.get(key);
 };
 
@@ -36,7 +36,7 @@ const getCookieFromServer = (key, req) => {
   }
   const rawCookie = req.headers.cookie
     .split(';')
-    .find(c => c.trim().startsWith(`${key}=`));
+    .find((c) => c.trim().startsWith(`${key}=`));
   if (!rawCookie) {
     return undefined;
   }

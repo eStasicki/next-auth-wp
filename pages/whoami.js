@@ -7,7 +7,12 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import GET_GENERAL_SETTINGS_QUERY from '../queries/GET_GENERAL_SETTINGS';
 
-const Whoami = ({ user, getAllPosts, userRole, GET_GENERAL_SETTINGS_QUERY }) => (
+const Whoami = ({
+  user,
+  getAllPosts,
+  userRole,
+  GET_GENERAL_SETTINGS_QUERY,
+}) => (
   <Layout title="Who Am I">
     {(user && (
       <>
@@ -16,7 +21,7 @@ const Whoami = ({ user, getAllPosts, userRole, GET_GENERAL_SETTINGS_QUERY }) => 
           <strong className="is-size-2 has-text-primary">{user}</strong>.
         </h3>
         <Query query={getAllPosts}>
-        {({ loading, error, data }) => {
+          {({ loading, error, data }) => {
             if (loading) return <div>Wczytywanie...</div>;
             if (error) return false;
             return (
@@ -38,7 +43,7 @@ const Whoami = ({ user, getAllPosts, userRole, GET_GENERAL_SETTINGS_QUERY }) => 
         <h3>Dodatkowe informacje o użytkowniku:</h3>
         <p>Rola: {userRole}</p>
         <Query query={GET_GENERAL_SETTINGS_QUERY}>
-        {({ loading, error, data }) => {
+          {({ loading, error, data }) => {
             if (loading) return <div>Wczytywanie...</div>;
             if (error) return false;
             return (
@@ -50,7 +55,11 @@ const Whoami = ({ user, getAllPosts, userRole, GET_GENERAL_SETTINGS_QUERY }) => 
                     ))}
                   </>
                 ) : (
-                  <p dangerouslySetInnerHTML={{__html: data.headlessSettings.ustawieniaAplikacji.logo}} />
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: data.headlessSettings.ustawieniaAplikacji.logo,
+                    }}
+                  />
                 )}
               </div>
             );
@@ -63,14 +72,14 @@ const Whoami = ({ user, getAllPosts, userRole, GET_GENERAL_SETTINGS_QUERY }) => 
   </Layout>
 );
 
-Whoami.getInitialProps = async ctx => {
+Whoami.getInitialProps = async (ctx) => {
   initialize(ctx);
   const token = ctx.store.getState().authentication.token;
   if (token) {
     const response = await axios.get(`${API}/wp-json/wp/v2/users/me`, {
       headers: {
-        Authorization: 'Bearer ' + token
-      }
+        Authorization: 'Bearer ' + token,
+      },
     });
     const user = response.data.name;
     const userID = response.data.id;
@@ -78,7 +87,7 @@ Whoami.getInitialProps = async ctx => {
 
     const getAllPosts = gql`
     {
-      posts(where: { author: ${ userID  } }) {
+      posts(where: { author: ${userID} }) {
         nodes {
           title
           id
@@ -95,4 +104,4 @@ Whoami.getInitialProps = async ctx => {
   }
 };
 
-export default connect(state => state)(Whoami);
+export default connect((state) => state)(Whoami);

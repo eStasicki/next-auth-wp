@@ -9,7 +9,7 @@ class Signin extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
     };
   }
 
@@ -42,7 +42,7 @@ class Signin extends React.Component {
                 placeholder="Login"
                 required
                 value={this.state.username}
-                onChange={e => this.setState({ username: e.target.value })}
+                onChange={(e) => this.setState({ username: e.target.value })}
               />
               <span className="icon is-small is-left">
                 <i className="fas fa-envelope" />
@@ -60,7 +60,7 @@ class Signin extends React.Component {
                 placeholder="Hasło"
                 required
                 value={this.state.password}
-                onChange={e => this.setState({ password: e.target.value })}
+                onChange={(e) => this.setState({ password: e.target.value })}
               />
               <span className="icon is-small is-left">
                 <i className="fas fa-lock" />
@@ -80,7 +80,4 @@ class Signin extends React.Component {
   }
 }
 
-export default connect(
-  state => state,
-  actions
-)(Signin);
+export default connect((state) => state, actions)(Signin);

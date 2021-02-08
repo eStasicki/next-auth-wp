@@ -7,14 +7,15 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-app.prepare()
+app
+  .prepare()
   .then(() => {
     const server = express();
 
     server.use(cookieParser());
 
     server.get('/signin', (req, res) => {
-      if(req.cookies.token) {
+      if (req.cookies.token) {
         res.redirect('/');
       } else {
         return app.render(req, res, '/signin', req.query);
@@ -22,7 +23,7 @@ app.prepare()
     });
 
     server.get('/signup', (req, res) => {
-      if(req.cookies.token) {
+      if (req.cookies.token) {
         res.redirect('/');
       } else {
         return app.render(req, res, '/signup', req.query);

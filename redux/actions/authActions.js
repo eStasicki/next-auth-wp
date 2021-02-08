@@ -7,11 +7,12 @@ import { setCookie, removeCookie } from '../../utils/cookie';
 // gets token from the api and stores it in the redux store and in cookie
 const authenticate = ({ username, password }, type) => {
   return (dispatch) => {
-    axios.post(`${API}/wp-json/jwt-auth/v1/token`, { username, password })
+    axios
+      .post(`${API}/wp-json/jwt-auth/v1/token`, { username, password })
       .then((response) => {
         setCookie('token', response.data.token);
         Router.push('/');
-        dispatch({type: AUTHENTICATE, payload: response.data.token});
+        dispatch({ type: AUTHENTICATE, payload: response.data.token });
       })
       .catch((error) => {
         throw new Error(error);
@@ -22,7 +23,7 @@ const authenticate = ({ username, password }, type) => {
 // gets the token from the cookie and saves it in the store
 const reauthenticate = (token) => {
   return (dispatch) => {
-    dispatch({type: AUTHENTICATE, payload: token});
+    dispatch({ type: AUTHENTICATE, payload: token });
   };
 };
 
@@ -31,7 +32,7 @@ const deauthenticate = () => {
   return (dispatch) => {
     removeCookie('token');
     Router.push('/');
-    dispatch({type: DEAUTHENTICATE});
+    dispatch({ type: DEAUTHENTICATE });
   };
 };
 
