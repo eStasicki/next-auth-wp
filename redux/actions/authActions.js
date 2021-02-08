@@ -1,8 +1,11 @@
-import Router from 'next/router';
 import axios from 'axios';
-import { AUTHENTICATE, DEAUTHENTICATE } from '../types';
+import Router from 'next/router';
+
 import { API } from '../../config';
-import { setCookie, removeCookie } from '../../utils/cookie';
+
+import { setCookie, removeCookie } from '@utils/cookie';
+
+import { AUTHENTICATE, DEAUTHENTICATE } from '@redux/types';
 
 // gets token from the api and stores it in the redux store and in cookie
 const authenticate = ({ username, password }, type) => {
@@ -14,8 +17,10 @@ const authenticate = ({ username, password }, type) => {
         Router.push('/');
         dispatch({ type: AUTHENTICATE, payload: response.data.token });
       })
-      .catch((error) => {
-        throw new Error(error);
+      .catch((error, response) => {
+        removeCookie('token');
+        Router.push('/');
+        dispatch({ type: DEAUTHENTICATE });
       });
   };
 };
