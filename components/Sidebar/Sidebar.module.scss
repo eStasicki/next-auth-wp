@@ -10,11 +10,11 @@
 	}
 	ul {
 		li {
+			position: relative;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			margin-bottom: 15px;
-			padding: 15px;
 			text-transform: uppercase;
 			border-radius: 10px;
 			background: $color-4;
@@ -34,6 +34,7 @@
 				display: flex;
 				justify-content: center;
 				align-items: center;
+				padding: 15px;
 				text-decoration: none;
 				color: $white;
 			}
