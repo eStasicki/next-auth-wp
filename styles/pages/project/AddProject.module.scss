@@ -1,0 +1,38 @@
+@import "@styles/global.scss";
+.form {
+	position: relative;
+	width: 60%;
+	padding: 20px;
+	input {
+		display: flex;
+		width: 100%;
+		padding: 15px;
+		border-radius: 10px;
+		background: $white;
+		&.przykladowe {
+			margin-top: 15px;
+		}
+	}
+	textarea {
+		display: flex;
+		width: 100%;
+		margin-top: 15px;
+		padding: 15px;
+		resize: none;
+		border-radius: 10px;
+		background: $white;
+	}
+	button {
+		&[type="submit"] {
+			display: flex;
+			width: 100%;
+			margin-top: 15px;
+			padding: 15px;
+			cursor: pointer;
+			text-transform: uppercase;
+			color: $white;
+			border-radius: 10px;
+			background: $color-1;
+		}
+	}
+}
