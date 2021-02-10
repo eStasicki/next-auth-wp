@@ -1,10 +1,45 @@
 @import "@styles/global.scss";
 .sidebar {
+	padding: 15px;
+	color: $white;
+	background: $color-5;
+
 	@include xl {
 		position: fixed;
 		top: 0;
 		bottom: 0;
 		left: 0;
 		width: 20%;
+	}
+	ul {
+		li {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 15px;
+			padding: 15px;
+			text-transform: uppercase;
+			border-radius: 10px;
+			background: $color-4;
+			font-weight: 600;
+
+			@include xl {
+				@include animation();
+				&:hover {
+					cursor: pointer;
+					background: rgba($color-2, 0.3);
+				}
+			}
+			&.logout {
+				background: $color-1;
+			}
+			a {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-decoration: none;
+				color: $white;
+			}
+		}
 	}
 }

@@ -8,7 +8,7 @@ import actions from '@redux/actions';
 
 let cx = classNames.bind(styles);
 
-const Sidebar = ({ deauthenticate }) => (
+const Sidebar = ({ deauthenticate, isAuthenticated }) => (
   <nav className={cx('sidebar')}>
     <ul>
       <li>
@@ -21,9 +21,11 @@ const Sidebar = ({ deauthenticate }) => (
           <a>Mój profil</a>
         </Link>
       </li>
-      <li onClick={deauthenticate}>
-        <a>Wyloguj się</a>
-      </li>
+      {isAuthenticated && (
+        <li className={cx('logout')} onClick={deauthenticate}>
+          <a>Wyloguj się</a>
+        </li>
+      )}
     </ul>
   </nav>
 );
